@@ -1,0 +1,1 @@
+export { InitialsTile } from "./Tiles";

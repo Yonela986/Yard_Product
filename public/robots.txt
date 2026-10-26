@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /t/
+Disallow: /sign-in
+Disallow: /onboarding
+Disallow: /home
+Disallow: /rooms
+Disallow: /money
+Disallow: /settings
+Disallow: /payments
+Disallow: /tenants
+Disallow: /remind

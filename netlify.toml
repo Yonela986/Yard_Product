@@ -1,0 +1,30 @@
+# Yard is deployed to Netlify as a static single-page app.
+[build]
+  command = "npm run build"
+  publish = "dist/client"
+
+[build.environment]
+  NODE_VERSION = "22"
+  SECRETS_SCAN_OMIT_KEYS = "VITE_SUPABASE_ANON_KEY"
+
+# Every path serves the app shell; the app's router handles the rest.
+[[redirects]]
+  from = "/*"
+  to = "/_shell.html"
+  status = 200
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/t/*"
+  [headers.values]
+    Referrer-Policy = "no-referrer"
+    X-Robots-Tag = "noindex, nofollow"
